@@ -1,4 +1,5 @@
 #include "functions.h"
+#include <math.h>
 #include <stdio.h>
 
 int main()
@@ -8,9 +9,6 @@ int main()
     double s[]={0,0,0,0};
     int n=4;
     double M;
-
-    SumVec(s,a,b,n);
-    M=Mod(a);
 
     
     printf("Vector suma: (%lf)\n",b[0]);
