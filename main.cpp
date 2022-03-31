@@ -11,7 +11,19 @@ int main()
 {
     double r[MAXFILS][1],v[MAXFILS][1],a[MAXFILS][1],w[MAXFILS][1];
     double M[MAXFILS];
-    int n;
+    int n=9;
+
+    FILE *f1,*f2,*f3,*fr;
+
+    f1=open("distancias.txt","r");
+    f2=open("masas.txt","r");
+    f3=open("excentricidad.txt","r");
+
+
+    for(i=1;i<=n;i++)
+    {
+        r[i][1]
+    }
 
     
     return 0;

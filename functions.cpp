@@ -92,11 +92,15 @@ void acel(double a[][1], double r[][1], double M[] ,int n)
 void posic(double r[][1],double v[][1], double a[][1], double h,int n)
 {
     int i,j;
+    double hcuad;
+
+    hcuad=(h*h)/2;
+
     for(i=0;i<=n;i++)
     {
         for(j=0;j<=1;j++)
         {
-            r[i][j]=r[i][j]+h*v[i][j]+(h*h)/2*a[i][j];
+            r[i][j]=r[i][j]+h*v[i][j]+hcuad*a[i][j];
         }
     }
 }
@@ -104,11 +108,15 @@ void posic(double r[][1],double v[][1], double a[][1], double h,int n)
 void omega(double w[][1], double v[][1],double a[][1],double h, int n)
 {
     int i,j;
+    double hmid;
+
+    hmid=h/2;
+
     for(i=0;i<=n;i++)
     {
         for(j=0;j<=1;j++)
         {
-            w[i][j]=v[i][j]+h/2*a[i][j];
+            w[i][j]=v[i][j]+hmid*a[i][j];
         }
     }
 }
@@ -116,11 +124,16 @@ void omega(double w[][1], double v[][1],double a[][1],double h, int n)
 void veloc(double w[][1],double v[][1], double a[][1], double h, int n)
 {
     int i,j;
+
+    double hmid;
+
+    hmid=h/2;
+
     for(i=0;i<=n;i++)
     {
         for(j=0;j<=1;j++)
         {
-            v[i][j]=w[i][j]+h/2*a[i][j];
+            v[i][j]=w[i][j]+hmid*a[i][j];
         }
     }
 }
