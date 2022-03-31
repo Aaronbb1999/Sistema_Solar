@@ -8,7 +8,7 @@ const double c=1.496E11;
 const double Ms=1.99E30;
 
 double Mod1(double v[2]);
-void acel(double a[][2], double R[][2],double M[]);
+void acel(double a[][2], double R[][2],double M[],int n);
 void Reinitialize(double A[][1], int fils, int cols);
 void posic(double r[][1],double v[][1], double a[][1], double h,int n);
 void omega(double w[][1], double v[][1],double a[][1],double h, int n);

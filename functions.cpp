@@ -3,7 +3,7 @@
 
 
 
-void Reinitialize(double A[][1], int fils, int cols)
+void Reinitialize(double A[][2], int fils, int cols)
 {
     int i,j;
 
@@ -16,7 +16,7 @@ void Reinitialize(double A[][1], int fils, int cols)
     }
 }
 
-double Mod1(double v[1])
+double Mod1(double v[2])
 {
     double M;
 
@@ -25,12 +25,12 @@ double Mod1(double v[1])
     return M;
 }
 
-void acel(double a[][1], double r[][1], double M[] ,int n)
+void acel(double a[][2], double r[][2], double M[] ,int n)
 {
     int i,j,k,i1;
     double R[MAXFILS][MAXCOLS][2];
     double A[MAXFILS][MAXCOLS][2];
-    double aux[1];
+    double aux[2];
     double mod;
 
     //Reiniciamos la matriz de aceleraciones
@@ -61,9 +61,9 @@ void acel(double a[][1], double r[][1], double M[] ,int n)
              for(k=0;k<=1;k++)
              {
                 //si no es el mismo planeta, hallamos las aceleraciones que produce cada planeta sobre otro
-                if(mod<=0.000001)
+                if(mod>=0.000001)
                 {
-                    A[i][j][k]=-G*M[j]*R[i][j][k]/(mod*mod*mod);
+                    A[i][j][k]=M[j]*R[i][j][k]/(mod*mod*mod);
                 }
              }
          }
@@ -84,14 +84,14 @@ void acel(double a[][1], double r[][1], double M[] ,int n)
 
 }
 
-void posic(double r[][1],double v[][1], double a[][1], double h,int n)
+void posic(double r[][2],double v[][2], double a[][2], double h,int n)
 {
     int i,j;
     double hcuad;
 
     hcuad=(h*h)/2;
 
-    for(i=0;i<=n;i++)
+    for(i=1;i<=n;i++)
     {
         for(j=0;j<=1;j++)
         {
@@ -100,7 +100,7 @@ void posic(double r[][1],double v[][1], double a[][1], double h,int n)
     }
 }
 
-void omega(double w[][1], double v[][1],double a[][1],double h, int n)
+void omega(double w[][2], double v[][2],double a[][2],double h, int n)
 {
     int i,j;
     double hmid;
@@ -116,7 +116,7 @@ void omega(double w[][1], double v[][1],double a[][1],double h, int n)
     }
 }
 
-void veloc(double w[][1],double v[][1], double a[][1], double h, int n)
+void veloc(double w[][2],double v[][2], double a[][2 ], double h, int n)
 {
     int i,j;
 
