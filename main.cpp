@@ -1,30 +1,47 @@
 #include "functions.h"
-#include <math.h>
 #include <stdio.h>
-const int MAXFILS=20; 
-const int MAXCOLS=20;
-const double G=6.67E-11;
-const double c=1.496E11;
-const double Ms=1.99E30;
+#include "math.h"
+
 
 int main()
 {
-    double r[MAXFILS][1],v[MAXFILS][1],a[MAXFILS][1],w[MAXFILS][1];
-    double M[MAXFILS];
-    int n=9;
+    int n=8,i;
+    double r[n+1][2],v[n+1][2],a[n+1][2],w[n+1][2];
+    double M[n+1];
+    double aux1,aux2,aux3;
+    
+
+    M[0]=Ms;
 
     FILE *f1,*f2,*f3,*fr;
 
-    f1=open("distancias.txt","r");
-    f2=open("masas.txt","r");
-    f3=open("excentricidad.txt","r");
+    f1=fopen("distancias.txt","r");
+    f2=fopen("masas.txt","r");
+    f3=fopen("velocidades.txt","r");
 
 
     for(i=1;i<=n;i++)
     {
-        r[i][1]
+        fscanf(f1,"%lf",&aux1);
+        fscanf(f2,"%lf",&aux2);
+        fscanf(f3,"%lf",&aux3);
+        r[i][0]=aux1;
+        v[i][1]=aux3;
+        M[i]=aux2;
     }
 
+    fclose(f1);
+    fclose(f2);
+    fclose(f3);
+
+    
+    for(i=1;i<=n;i++)
+    {
+        printf("Radio %i es: %lf\n",i,r[i][0]);
+        printf("Velocidad %i es: %lf\n",i,v[i][1]);
+        printf("Masa %i es: %lf\n",i,M[i]);
+    }
+    
     
     return 0;
 

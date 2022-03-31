@@ -1,14 +1,9 @@
-#include <math.h>
 #include "functions.h"
-#include <stdio.h>
-const int MAXFILS=20; 
-const int MAXCOLS=20;
-const double G=6.67E-11;
-const double c=1.496E11;
-const double Ms=1.99E30;
+#include "math.h"
 
 
-void Reinitialize(double A[][MAXCOLS], int fils, int cols)
+
+void Reinitialize(double A[][1], int fils, int cols)
 {
     int i,j;
 
