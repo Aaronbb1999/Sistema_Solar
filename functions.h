@@ -1,18 +1,10 @@
 #ifndef _functions
 #define _functions
 
-const int MAXFILS=20; 
-const int MAXCOLS=20;
-const double G=6.67E-11;
-const double c=1.496E11;
-const double Ms=1.99E30;
+const double Ms=1988500;
 
-double Mod1(double v[2]);
-void acel(double a[][2], double R[][2],double M[],int n);
-void Reinitialize(double A[][1], int fils, int cols);
-void posic(double r[][1],double v[][1], double a[][1], double h,int n);
-void omega(double w[][1], double v[][1],double a[][1],double h, int n);
-void veloc(double w[][1],double v[][1], double a[][1], double h, int n);
+void acel(double x[], double y[], double ax[], double ay[], double m[], int planetas);
+void verlett(double x[], double y[], double vx[], double vy[], double ax[], double ay[], double m[], int planetas, double h, int iteraciones);
 
 #include "functions.cpp"
 #endif
