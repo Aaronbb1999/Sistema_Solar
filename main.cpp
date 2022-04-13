@@ -8,7 +8,6 @@ int main()
 
     int planetas=9, i,j, iter,k;
     double x[planetas],y[planetas],vx[planetas],vy[planetas],ax[planetas],ay[planetas],M[planetas];
-    double aux1,aux2,aux3,aux4,aux5;
     double h;
     
 
@@ -16,17 +15,12 @@ int main()
 
     //Abrimos los ficheros
     f1=fopen("condiciones_iniciales.txt","r");
-    fr=fopen("Resultados.txt","w");
+    fr=fopen("Resultados.dat","w");
 
     //Recogemos los datos iniciales del fichero
     for(i=0;i<planetas;i++)
     {
-        fscanf(f1,"%lf, %lf, %lf, %lf, %lf",&aux1,&aux2,&aux3,&aux4,&aux5);
-        x[i]=aux1;
-        y[i]=aux2;
-        vx[i]=aux3;
-        vy[i]=aux4;
-        M[i]=aux5;
+        fscanf(f1,"%lf, %lf, %lf, %lf, %lf",&x[i],&y[i],&vx[i],&vy[i],&M[i]);
     }
 
     fclose(f1);
@@ -44,11 +38,18 @@ int main()
         M[i]=M[i]/Ms;
     }
 
+    //Rescalamos posiciones
+    for(i=0;i<planetas;i++)
+    {
+        x[i]=x[i]/c;
+        y[i]=y[i]/c;
+    }   
+
     //Rescalamos las velocidades
     for(i=0;i<planetas;i++)
     {
-        vx[i]=vx[i]*58.1;
-        vy[i]=vy[i]*58.1;
+        vx[i]=vx[i]*58.1*24*60*60/c;
+        vy[i]=vy[i]*58.1*24*60*60/c;
     }   
 
     //Recogemos los resultados 

@@ -28,7 +28,7 @@ void acel(double x[], double y[], double ax[], double ay[], double m[], int plan
             ax[i]+=fx/m[i];
             ay[i]+=fy/m[i];
             ax[j]-=fx/m[j];
-            ax[j]-=fy/m[j];
+            ay[j]-=fy/m[j];
         }
     }
     
