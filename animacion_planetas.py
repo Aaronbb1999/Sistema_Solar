@@ -47,14 +47,14 @@ import numpy as np
 
 # Parámetros
 # ========================================
-file_in = "Resultados.dat" # Nombre del fichero de datos
-file_out = "planetas" # Nombre del fichero de salida (sin extensión)
+file_in = "Resultados_tierra.dat" # Nombre del fichero de datos
+file_out = "planetas_geocentrico" # Nombre del fichero de salida (sin extensión)
 
 # Límites de los ejes X e Y
-x_min = -10
-x_max = 10
-y_min = -10 
-y_max = 10
+x_min = -8
+x_max = 8
+y_min = -8 
+y_max = 8
 
 interval = 100 # Tiempo entre fotogramas en milisegundos
 show_trail = True # Muestra la "estela" del planeta
