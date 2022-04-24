@@ -10,16 +10,18 @@ int main()
     double x[planetas],y[planetas],vx[planetas],vy[planetas],ax[planetas],ay[planetas],M[planetas];
     double inicialx[planetas],inicialy[planetas],anteriorx[planetas],anteriory[planetas];
     double xtierra[planetas], ytierra[planetas];
+    double L[planetas],LTotal;
     double h,t;
     int vuelta[planetas];
     
 
-    FILE *f1,*fr,*ft;
+    FILE *f1,*fr,*ft,*fl;
 
     //Abrimos los ficheros
     f1=fopen("condiciones_iniciales.txt","r");
     fr=fopen("Resultados.dat","w");
     ft=fopen("Resultados_tierra.dat", "w");
+    fl=fopen("Momento_Ang.dat", "w");
 
     //Recogemos los datos iniciales del fichero
     for(i=0;i<planetas;i++)
@@ -114,6 +116,17 @@ int main()
             anteriory[j]=y[j];
         }
 
+
+        //Calculo de cantidades conservadas
+        LTotal=0;
+        for(j=0;j<planetas;j++)
+        {
+            L[j]=M[j]*(x[j]*vy[j]-y[j]*vx[j]);
+            LTotal+=L[j];
+        }
+        fprintf(fl,"%lf\n",LTotal);
+
+
         //Cambio de coordenada modelo geocentrico.
         for(j=0;j<planetas;j++)
         {
@@ -126,6 +139,7 @@ int main()
 
     fclose(fr);
     fclose(ft);
+    fclose(fl);
     
     return 0;
 
